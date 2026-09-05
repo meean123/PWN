@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PNW Accountants | PNW Tax & Accounting Consulting</title>
+<link rel="icon" type="image/jpg" href="images/PNW_Logo_Transparent.png">
+
+<link href="https://apis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+<style>
+
+:root{
+    --green:#1F5E4A;
+    --green-light:#2E7D5A;
+    --dark:#1F2933;
+    --cream:#F6F3EC;
+    --light:#F8FAFC;
+    --white:#FFFFFF;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--cream);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+section{
+    padding:90px 0;
+}
+
+h1,h2,h3{
+    font-weight:700;
+}
+
+a{
+    text-decoration:none;
+}
+
+.btn{
+    display:inline-block;
+    padding: 13px 26px;
+    border-radius:999px;
+    font-weight:600;
+    text-decoration: none;
+    transition: all .2s ease;
+}
+
+.btn-primary {
+    background: var(--green);
+    color: var(--white);
+}
+
+.btn-primary:hover{
+    background:var(--green-light);
+    transform:translateY(-2px);
+}
+
+nav{
+    padding:24px 0;
+    display:flex;
+    justify-content:space-between;
+    align-items:top;
+}
+
+.logo{
+    font-size:1.5rem;
+    font-weight:800;
+    color:var(--green);
+}
+.logo img {
+    height: 100px;
+    width: auto;
+}
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:var(--dark);
+    font-weight:500;
+}
+
+.hero{
+    padding:60px 0 100px;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:50px;
+    align-items:center;
+}
+
+.hero h1{
+    font-size:4rem;
+    line-height:1.1;
+    margin-bottom:24px;
+}
+
+.hero p{
+    font-size:1.1rem;
+    max-width:650px;
+    color:#555;
+    margin-bottom:35px;
+}
+
+.hero-form{
+    background:white;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+}
+
+.hero-form h3{
+    margin-bottom:20px;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background-image: url("images/rainier-background.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    opacity: 0.15;
+    filter: grayscale(100%);
+
+    z-index: -1;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:16px;
+    margin-bottom:15px;
+    font-family:inherit;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:28px;
+    padding:35px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.why{
+    background:white;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.testimonials{
+    background:var(--light);
+}
+
+.testimonial-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.testimonial{
+    background:white;
+    padding:30px;
+    border-radius:28px;
+}
+
+.client{
+    margin-top:20px;
+    color:var(--green);
+    font-weight:600;
+}
+
+.contact-box{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:45px;
+    border-radius:32px;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+footer{
+    background:var(--dark);
+    color:white;
+    padding:70px 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:40px;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links a{
+    color:white;
+}
+
+.legal{
+    margin-top:40px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+    font-size:.9rem;
+    color:#d1d5db;
+}
+
+.policy{
+    background:white;
+}
+
+.policy-content{
+    max-width: 900px;
+    margin: 40px auto 0;
+    font-size: 1rem;
+    line-height: 1.75;
+}
+}
+
+.policy h3{
+    margin-top:25px;
+    margin-bottom:10px;
+}
+
+@media(max-width:900px){
+
+.hero-grid{
+    grid-template-columns:1fr;
+}
+
+.hero h1{
+    font-size:2.8rem;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+nav{
+    flex-direction:column;
+    gap:20px;
+}
+
+<!--.btn {-->
+<!--    background: #1F5E4A;-->
+<!--    color: white;-->
+<!--    padding: 12px 24px;-->
+<!--    border-radius: 999px;-->
+<!--    text-decoration: none;-->
+<!--    font-weight: 600;-->
+<!--}-->
+  .button-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<nav>
+
+    <div class="logo">
+        <img src="images/PNW_Logo_Transparent.png">
+    </div>
+
+    <div class="nav-buttons">
+        <a href="#services" class="btn btn-primary">Services</a>
+        <a href="#testimonials" class="btn btn-primary">Testimonials</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+        <a href="PNW_faq.html" class="btn btn-primary">FAQs</a>
+    </div>
+
+</nav>
+
+<section class="hero">
+
+    <div class="hero-overlay"></div>
+
+
+<div class="hero-grid">
+
+<div>
+
+<h1>
+PNW Tax & Accounting Experts
+</h1>
+<h2>
+Your Numbers, Sorted. Your Taxes, Planned. Your Business, Moving Forward.
+</h2>
+<p>
+    <br>
+Helping individuals, entrepreneurs and growing businesses throughout the Pacific North West with bookkeeping, tax planning, accounting advisory and business consulting.
+</p>
+
+</div>
+
+<div class="hero-form">
+
+<h3>Request A Callback</h3>
+<p>
+    Tell us a little about you and what you need help with. We'll get back to you to arrange an initial conversation.
+</p>
+<form>
+
+<input type="text" placeholder="Full Name" required>
+
+<input type="email" placeholder="Email Address" required>
+
+<input type="tel" placeholder="Phone Number">
+
+<textarea placeholder="How can we help?"></textarea>
+
+<button type="submit" class="btn btn-primary">
+Request Consultation
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</div>
+
+<section id="services">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Services</h2>
+
+<p>
+Practical advice, proactive planning and dependable support.
+</p>
+
+</div>
+
+<div class="services-grid">
+
+<div class="card">
+<h3>Bookkeeping & accounting</h3>
+<p>
+Clean, accurate financial records, so you can make decisions with confidence.
+</p>
+</div>
+
+<div class="card">
+<h3>Tax Planning</h3>
+<p>
+Year-round strategies to help minimise liabilities and avoid surprises. Don't wait until tax season to find out what you owe.
+</p>
+</div>
+
+<div class="card">
+<h3>Tax Preparation</h3>
+<p>
+Accurate personal and business tax returns prepared by experienced professionals.
+</p>
+</div>
+
+<div class="card">
+<h3>Business Consulting</h3>
+<p>
+Financial insights, forecasting and growth planning to turn uncertainty into a clear direction for your business.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="why">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>Why Work With Us</h2>
+<p></p>
+</div>
+
+<div class="features">
+
+<div class="card">
+<h3>Proactive</h3>
+<p>
+We don't just report what happened. We help you plan what's next.
+</p>
+</div>
+
+<div class="card">
+<h3>Responsive Service</h3>
+<p>
+Timely answers and direct communication when it matters, because questions shouldn't have to wait until tax season.
+</p>
+</div>
+
+<div class="card">
+<h3>Personalised Advice</h3>
+<p>
+Solutions designed around your unique circumstances and goals, explained in plain English.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="testimonials" class="testimonials">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>What Clients Say</h2>
+
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+<p>
+"PNW Accountants helped us streamline our bookkeeping and gave us confidence in our financial reporting."
+</p>
+<div class="client">
+Seattle Small Business Owner
+</div>
+</div>
+
+<div class="testimonial">
+<p>
+"Their proactive tax planning approach saved our company both time and money."
+</p>
+<div class="client">
+Local Entrepreneur
+</div>
+</div>
+
+<div class="testimonial">
+<p>
+"Professional, responsive and easy to work with. Highly recommended."
+</p>
+<div class="client">
+Washington State Client
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="container">
+
+<div class="contact-box">
+
+<div class="section-title">
+<h2>Schedule Your Consultation</h2>
+<p>
+Tell us a little about your needs and we'll get back to you promptly.
+</p>
+</div>
+
+<form>
+
+<input type="text" placeholder="Name" required>
+
+<input type="email" placeholder="Email" required>
+
+<input type="tel" placeholder="Phone">
+
+<textarea placeholder="How can we help?"></textarea>
+
+<button type="submit" class="btn btn-primary">
+Book My Consultation
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+<div class="container policy-content">
+
+<h2>Professional Disclaimer</h2>
+
+<p>
+Information contained on this website is provided for general informational purposes only and should not be considered accounting, tax, legal or financial advice.
+    Tax laws and regulations are subject to change and may vary depending on your individual circumstances.
+</p>
+
+<p>
+Professional advice tailored to your specific circumstances should always be obtained before acting on any information presented on this website.
+    Please contact us directly to discuss your specific tax or accounting situation. No client relationship is established through use of this website or by submitting an inquiry or callback request.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div>
+
+<h3>PNW Accountants</h3>
+
+<p>
+Bookkeeping & accounting • Tax planning • Tax preparation • Business consulting<br>
+    Seattle, Washington
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h4>Legal</h4>
+
+<a href="PNW_privacy.html">Privacy Policy</a>
+<a href="PNW_ToS.html">Terms of use</a>
+
+</div>
+
+</div>
+
+<div class="legal">
+
+<p>
+© 2026 PNW Accountants. All Rights Reserved.<br>
+    <em>This website provides general information and does not constitute tax, accounting, or legal advice.</em>
+</p>
+
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
