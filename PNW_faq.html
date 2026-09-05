@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/jpg" href="images/PNW_Logo_Transparent.png">
+    <title>PNW Accountants | Frequently Asked Questions</title>
+    <meta name="description" content="Answers to common questions about personal tax, business tax, bookkeeping, accounting, and our services.">
+
+    <style>
+        :root {
+            --text: #1f2933;
+            --heading: #111827;
+            --muted: #667085;
+            --accent: #1f5f4a;
+            --accent-light: #eaf3ef;
+            --background: #ffffff;
+            --surface: #f8faf9;
+            --border: #e5e7eb;
+            --max-width: 850px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text);
+            background: var(--background);
+            line-height: 1.6;
+        }
+
+        /* Header */
+
+        header {
+            border-bottom: 1px solid var(--border);
+            padding: 24px 20px;
+        }
+
+        .header-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            color: var(--heading);
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 700;
+        }
+        .header-inner img {
+            height: 100px;
+            width: auto;
+        }
+
+        /* Main */
+
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 70px 20px 90px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 42px;
+        }
+
+        h1 {
+            color: var(--heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
+            margin: 0 0 14px;
+        }
+
+        .intro p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search */
+
+        .search-wrapper {
+            position: relative;
+            margin-bottom: 32px;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            pointer-events: none;
+        }
+
+        #faqSearch {
+            width: 100%;
+            padding: 17px 20px 17px 50px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--surface);
+            color: var(--text);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #faqSearch:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(31, 95, 74, 0.1);
+        }
+
+        #faqSearch::placeholder {
+            color: #98a2b3;
+        }
+
+        /* FAQ */
+
+        .faq-list {
+            border-top: 1px solid var(--border);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(31, 41, 51, 0.12);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 24px 4px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            border: 0;
+            color: var(--dark);
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .faq-question:hover {
+            color: var(--green);
+        }
+
+        .faq-question:focus-visible {
+            outline: 3px solid rgba(31, 95, 74, 0.2);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .plus {
+            color: var(--green);
+            font-size: 1.5rem;
+            font-weight: 300;
+        }
+
+        .faq-item.active .plus {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 48px 24px 4px;
+            color: var(--muted);
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-answer p {
+            margin: 0 0 12px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer a {
+            color: var(--accent);
+        }
+
+        /* Category labels */
+
+        .faq-category {
+            display: inline-block;
+            margin-top: 10px;
+            margin-bottom: 28px;
+            padding: 6px 11px;
+            border-radius: 999px;
+            background: var(--accent-light);
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        /* No results */
+
+        #noResults {
+            display: none;
+            text-align: center;
+            padding: 45px 20px;
+            color: var(--muted);
+        }
+
+        #noResults strong {
+            display: block;
+            color: var(--heading);
+            margin-bottom: 6px;
+        }
+
+        /* CTA */
+
+        .faq-cta {
+            margin-top: 60px;
+            padding: 35px;
+            border-radius: 14px;
+            background: var(--surface);
+            text-align: center;
+        }
+
+        .faq-cta h2 {
+            color: var(--heading);
+            margin: 0 0 8px;
+            font-size: 1.4rem;
+        }
+
+        .faq-cta p {
+            color: var(--muted);
+            margin: 0 0 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            background: var(--accent);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-button:hover {
+            background: #174c3b;
+        }
+
+        /* Footer */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 20px;
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--heading);
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+            main {
+                padding-top: 50px;
+            }
+
+            .faq-question {
+                padding: 19px 2px;
+                font-size: 0.98rem;
+            }
+
+            .faq-answer {
+                padding-left: 2px;
+                padding-right: 35px;
+            }
+
+            .faq-cta {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="scratch_6.html"> <img src="images/PNW_Logo_Transparent.png"></a>
+    </div>
+</header>
+
+<main>
+
+    <section class="intro">
+        <h1>Frequently Asked Questions</h1>
+        <p>
+            Find answers to common questions about our personal tax,
+            business tax, accounting, and bookkeeping services.
+        </p>
+    </section>
+
+    <div class="search-wrapper">
+        <span class="search-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2"
+                 stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"></circle>
+                <line x1="20" y1="20" x2="16.65" y2="16.65"></line>
+            </svg>
+        </span>
+
+        <input
+            type="search"
+            id="faqSearch"
+            placeholder="Search frequently asked questions..."
+            aria-label="Search frequently asked questions"
+        >
+    </div>
+
+    <div class="faq-list" id="faqList">
+
+        <!-- PERSONAL TAX -->
+
+        <div class="faq-category">Personal Tax</div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-1">
+                <span>What personal tax services do you provide?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-1">
+                <p>
+                    We provide individual tax preparation and planning
+                    services for a range of personal tax situations,
+                    including federal and applicable state tax returns.
+                    Depending on your circumstances, this may include W-2
+                    income, self-employment income, investments, rental
+                    income, and other sources of taxable income.
+                </p>
+                <p>
+                    During an initial conversation, we can review your needs
+                    and explain which services are appropriate for you.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-2">
+                <span>What documents do I need to provide for my tax return?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-2">
+                <p>
+                    This depends on your individual circumstances. Common
+                    documents include W-2s, 1099s, mortgage interest
+                    statements, investment statements, charitable donation
+                    records, business income and expense information, and
+                    prior-year tax returns.
+                </p>
+                <p>
+                    We can provide a personalized document checklist based
+                    on your situation.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-3">
+                <span>Can you help if my tax return is overdue?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-3">
+                <p>
+                    Yes. If you have an unfiled or overdue return,
+                    contact us as soon as possible. We can review
+                    what is outstanding, discuss your options,
+                    and explain what may be needed to bring your
+                    filings up to date.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-4">
+                <span>Can you help with previous years' tax returns?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-4">
+                <p>
+                    In many cases, yes. We can discuss prior-year returns,
+                    unfiled returns, or situations where you need help
+                    understanding a previous filing depending on the
+                    availability of the information and documents needed.
+                </p>
+                <p>
+                    Contact us with the years involved and a brief overview
+                    of your situation, so we can determine how best to help.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-5">
+                <span>Can you help me with tax planning, not just tax filing?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-5">
+                <p>
+                    Yes. Tax planning can help you understand the potential
+                    tax impact of financial and business decisions before
+                    they happen.
+                </p>
+                <p>
+                    We can discuss your circumstances and identify
+                    opportunities to plan ahead rather than waiting until
+                    filing season.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-6">
+                <span>Can you give me tax advice before I become a client?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-6">
+                <p>
+                    We can discuss your general needs and explain the types
+                    of services we provide. Personalized tax advice depends
+                    on your circumstances and the scope of the services we
+                    agree to provide. A preliminary conversation does not
+                    by itself create a professional engagement or relationship.
+                </p>
+            </div>
+        </div>
+
+        <!-- BUSINESS TAX -->
+
+        <div class="faq-category">Business Tax & Accounting</div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-7">
+                <span>What types of businesses do you work with?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-7">
+                <p>
+                    We work with individuals, entrepreneurs, and businesses
+                    of different sizes and structures.
+                </p>
+                <p>
+                    If you're unsure whether we're the right fit for your
+                    business, get in touch and we'll be happy to discuss
+                    your needs.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-8">
+                <span>Do you work with LLCs and S corporations?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-8">
+                <p>
+                    We work with businesses using a range of
+                    legal and tax structures, including LLCs
+                    and corporations. The tax treatment of an
+                    LLC can vary depending on its tax
+                    classification and circumstances.
+                </p>
+                <p>
+                    If you're considering changing your business structure,
+                    we recommend discussing your circumstances with us before
+                    making a decision.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-9">
+                <span>Do you provide bookkeeping services?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-9">
+                <p>
+                    Yes. Depending on your needs, bookkeeping support may
+                    include maintaining financial records, categorizing
+                    transactions, reconciling accounts, and preparing
+                    financial information for tax and business planning.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-10">
+                <span>Can you take over my bookkeeping from another accountant?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-10">
+                <p>
+                    In many cases, yes. We can review your existing records,
+                    accounting setup, and prior work before determining what
+                    needs to be brought up to date.
+                </p>
+                <p>
+                    We'll explain any issues we identify and recommend a
+                    practical way forward.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-11">
+                <span>Do you offer payroll services?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-11">
+                <p>
+                    We do not currently offer payroll services.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- PROCESS -->
+
+        <div class="faq-category">Working With Us</div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-12">
+                <span>How does the process work?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-12">
+                <p>
+                    It starts with a conversation about your situation and
+                    what you need help with. We'll then explain the services
+                    that may be appropriate, what information we'll need,
+                    and the next steps.
+                </p>
+                <p>
+                    An initial conversation does not
+                    create a client relationship or commit either party
+                    to an engagement.
+                </p>
+                <p>
+                    Once you decide to move forward, we'll guide you through
+                    the process from there.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-13">
+                <span>Can I speak with someone before becoming a client?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-13">
+                <p>
+                    Absolutely. We encourage prospective clients to get in
+                    touch, so we can understand what you're looking for and
+                    determine whether our services are a good fit.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-14">
+                <span>Do you offer a callback?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-14">
+                <p>
+                    Yes. You can request a callback through our website and
+                    provide a convenient time for us to contact you.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-15">
+                <span>Can I work with you remotely?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-15">
+                <p>
+                    Remote services may be available depending on your
+                    location, tax filing requirements, and the services
+                    you require.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-16">
+                <span>How much do your services cost?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-16">
+                <p>
+                    Fees depend on the type and complexity of the services
+                    you need. We'll explain the proposed services and
+                    applicable fees before an engagement is established.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-17">
+                <span>Does contacting you make me a client?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-17">
+                <p>
+                    No. Contacting us through the website, submitting a form,
+                    requesting a callback, or speaking with us does not by
+                    itself create a professional engagement. If we agree to
+                    provide services, we'll explain the applicable services,
+                    terms, and next steps before the engagement begins.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECURITY -->
+
+        <div class="faq-category">Documents & Security</div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-18">
+                <span>How do I send you my tax documents?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-18">
+                <p>
+                    We'll provide instructions for securely sharing documents
+                    when you become a client.
+                </p>
+                <p>
+                    For your protection, please do not send Social Security
+                    numbers, passwords, bank details, tax returns, or other
+                    sensitive information through a standard website contact
+                    form unless we have specifically instructed you to do so.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-19">
+                <span>Is my information kept confidential?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-19">
+                <p>
+                    We treat client information as confidential
+                    and maintain safeguards and procedures designed
+                    to protect information entrusted to us,
+                    consistent with applicable professional and
+                    legal requirements.
+                </p>
+                <p>
+                    Please see our
+                    <a href="/privacy-policy.html">Privacy Policy</a>
+                    for more information about how information submitted
+                    through our website is handled.
+                </p>
+            </div>
+        </div>
+
+
+        <!-- TAX DEADLINES -->
+
+        <div class="faq-category">Deadlines & Tax Notices</div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-20">
+                <span>Can you help if I receive a letter from the IRS?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-20">
+                <p>
+                    Contact us promptly if you receive an IRS or state tax
+                    notice. We can review the notice and explain what it
+                    means and what steps may be required.
+                </p>
+                <p>
+                    Because some notices have strict response deadlines,
+                    don't wait until the deadline is approaching before
+                    getting in touch. Our ability to assist may depend
+                    on the nature of the notice, the time available,
+                    and the services included in your engagement.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-21">
+                <span>Do you remind clients about tax deadlines?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-21">
+                <p>
+                    Depending on the services included in your engagement,
+                    we may provide reminders or discuss applicable filing
+                    deadlines. However, clients remain responsible for
+                    providing information and taking actions required to
+                    meet their tax obligations unless we have expressly
+                    agreed in writing to handle a particular filing,
+                    payment, or deadline.
+                </p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question"
+                    aria-expanded="false"
+                    aria-controls="answer-22">
+                <span>What happens if I miss a tax deadline?</span>
+                <span class="plus" aria-hidden="true">+</span>
+            </button>
+
+            <div class="faq-answer" id="answer-22">
+                <p>
+                    Don't ignore it. Contact us as soon as possible so we can
+                    understand your situation and explain the available next
+                    steps.
+                </p>
+                <p>
+                    Penalties and interest can depend on several factors, so
+                    we'll review the circumstances before advising you on what
+                    to do.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="noResults">
+        <strong>No questions found</strong>
+        Try a different search term or
+        <a href="#faqList" id="clearSearch">clear your search</a>.
+    </div>
+
+    <section class="faq-cta">
+        <h2>Still have a question?</h2>
+        <p>
+            We're happy to discuss your situation and explain how we may be
+            able to help.
+        </p>
+        <a href="mailto:support@pnwaccountants.com" class="cta-button">
+            Contact Us
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-inner">
+        <div>
+            © 2026 PNW Accountants. All rights reserved.
+        </div>
+
+    </div>
+</footer>
+
+
+<script>
+    const searchInput = document.getElementById("faqSearch");
+    const faqItems = document.querySelectorAll(".faq-item");
+    const noResults = document.getElementById("noResults");
+    const clearSearch = document.getElementById("clearSearch");
+
+    /*
+     * Open one FAQ and close every other FAQ.
+     */
+    function openFaq(item) {
+        faqItems.forEach(otherItem => {
+            if (otherItem !== item) {
+                otherItem.classList.remove("active");
+
+                const otherButton =
+                    otherItem.querySelector(".faq-question");
+
+                otherButton.setAttribute("aria-expanded", "false");
+            }
+        });
+
+        const isActive = item.classList.contains("active");
+        const button = item.querySelector(".faq-question");
+
+        item.classList.toggle("active");
+        button.setAttribute("aria-expanded", String(!isActive));
+    }
+
+
+    /*
+     * FAQ click handling.
+     */
+    faqItems.forEach(item => {
+        const button = item.querySelector(".faq-question");
+
+        button.addEventListener("click", () => {
+            openFaq(item);
+        });
+    });
+
+
+    /*
+     * Search / filter.
+     *
+     * The search checks both the question and answer text.
+     * Category labels remain visible only when at least one
+     * question in that category matches.
+     */
+    searchInput.addEventListener("input", () => {
+        const searchTerm = searchInput.value
+            .toLowerCase()
+            .trim();
+
+        let visibleCount = 0;
+
+        faqItems.forEach(item => {
+            const question = item
+                .querySelector(".faq-question")
+                .textContent
+                .toLowerCase();
+
+            const answer = item
+                .querySelector(".faq-answer")
+                .textContent
+                .toLowerCase();
+
+            const matches =
+                searchTerm === "" ||
+                question.includes(searchTerm) ||
+                answer.includes(searchTerm);
+
+            item.style.display = matches ? "" : "none";
+
+            if (matches) {
+                visibleCount++;
+            }
+        });
+
+
+        /*
+         * Hide category headings when none of their questions
+         * are currently visible.
+         */
+        document.querySelectorAll(".faq-category").forEach(category => {
+            let nextElement = category.nextElementSibling;
+            let hasVisibleItem = false;
+
+            while (
+                nextElement &&
+                !nextElement.classList.contains("faq-category")
+            ) {
+                if (
+                    nextElement.classList.contains("faq-item") &&
+                    nextElement.style.display !== "none"
+                ) {
+                    hasVisibleItem = true;
+                    break;
+                }
+
+                nextElement = nextElement.nextElementSibling;
+            }
+
+            category.style.display =
+                hasVisibleItem ? "inline-block" : "none";
+        });
+
+
+        noResults.style.display =
+            visibleCount === 0 ? "block" : "none";
+    });
+
+
+    /*
+     * Clear search.
+     */
+    clearSearch.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        searchInput.value = "";
+
+        faqItems.forEach(item => {
+            item.style.display = "";
+        });
+
+        document.querySelectorAll(".faq-category").forEach(category => {
+            category.style.display = "inline-block";
+        });
+
+        noResults.style.display = "none";
+
+        searchInput.focus();
+    });
+</script>
+
+</body>
+</html>
