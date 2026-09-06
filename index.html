@@ -377,7 +377,7 @@ Helping individuals, entrepreneurs and growing businesses throughout the Pacific
     <input
         type="hidden"
         name="_subject"
-        value="New Callback Request from PNW Accountants Website">
+        value="New Callback Request from PNW Accountants Website - Top">
 
     <input
         id="name"
@@ -568,19 +568,43 @@ Tell us a little about your needs and we'll get back to you promptly.
 </p>
 </div>
 
-<form>
+<form action="https://formspree.io/f/xaeydnod" method="POST">
 
-<input type="text" placeholder="Name" required>
+    <input
+        type="hidden"
+        name="_subject"
+        value="New Callback Request from PNW Accountants Website - Bottom">
 
-<input type="email" placeholder="Email" required>
+    <input
+        id="name_b"
+        type="text"
+        name="name"
+        placeholder="Full Name"
+        required>
 
-<input type="tel" placeholder="Phone">
+    <input
+        id="email_b"
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required>
 
-<textarea placeholder="How can we help?"></textarea>
+    <input
+        id="phone_b"
+        type="tel"
+        name="phone"
+        placeholder="Phone Number">
 
-<button type="submit" class="btn btn-primary">
-Book My Consultation
-</button>
+    <textarea
+        id="message_b"
+        name="message"
+        rows="5"
+        placeholder="How can we help?"
+        required></textarea>
+
+    <button type="submit" class="btn btn-primary">
+        Book my Consultation
+    </button>
 
 </form>
 
